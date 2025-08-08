@@ -1,4 +1,3 @@
-<script>
 document.addEventListener("DOMContentLoaded", function() {
     const textInput = document.getElementById("textInput");
     const buttonInput = document.getElementById("buttonInput");
