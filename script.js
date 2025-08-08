@@ -1,20 +1,21 @@
+<script>
 document.addEventListener("DOMContentLoaded", function() {
     const textInput = document.getElementById("textInput");
     const buttonInput = document.getElementById("buttonInput");
     const chatbox = document.getElementById("chatbox");
 
     buttonInput.addEventListener("click", function() {
-        let userText = textInput.value;
+        let userText = textInput.value.trim();
         if (userText) {
             let newUserText = document.createElement("p");
             newUserText.classList.add("userText");
-            newUserText.innerHTML = "<span>" + userText + "</span>";
+            newUserText.innerHTML = `<span>${userText}</span>`;
             chatbox.appendChild(newUserText);
 
             let botResponse = getBotResponse(userText);
             let newBotText = document.createElement("p");
             newBotText.classList.add("botText");
-            newBotText.innerHTML = "<span>" + botResponse + "</span>";
+            newBotText.innerHTML = `<span>${botResponse}</span>`;
             chatbox.appendChild(newBotText);
 
             textInput.value = "";
@@ -25,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function() {
         userInput = userInput.toLowerCase();
         if (userInput.includes("hello")) {
             return "Hi there! What do you want to learn today?";
-        } else if (userInput.includes("hi")) {
-            return "Hello there! What do you want to learn today?";
+        } else if (userInput.includes("bye")) {
+            return "Goodbye! Come back soon.";
         } else if (userInput.includes("how are you")) {
             return "I am doing well, thank you!";
         } else if (userInput.includes("what are you")) {
